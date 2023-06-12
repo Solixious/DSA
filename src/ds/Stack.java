@@ -70,12 +70,20 @@ public class Stack<T> {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>(5);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack);
-        stack.pop();
-        System.out.println(stack);
+        Stack<Integer> integerStack = new Stack<>(5);
+        integerStack.push(1);
+        integerStack.push(2);
+        integerStack.push(3);
+        System.out.println(integerStack);
+        System.out.println(integerStack.pop());
+        System.out.println(integerStack.peek());
+        System.out.println(integerStack);
+
+        Stack<Float> floatStack = new Stack<>();
+        floatStack.push(1.0f);
+        floatStack.push(1.3f);
+        floatStack.push(2.0f);
+        floatStack.push(0.8f);
+        System.out.println(floatStack);
     }
 }
