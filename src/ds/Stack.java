@@ -25,6 +25,20 @@ public class Stack<T> {
         this.top = 0;
     }
 
+    @Override
+    public String toString() {
+        if (this.top == 0) {
+            return "";
+        }
+        int k = this.top;
+        StringBuilder sb = new StringBuilder();
+        sb.append(stack.get(--k));
+        while (k > 0) {
+            sb.append(" ---> ").append(stack.get(--k));
+        }
+        return sb.toString();
+    }
+
     public void push(final T data) {
         validateStackSize();
         this.stack.add(data);
@@ -60,9 +74,8 @@ public class Stack<T> {
         stack.push(1);
         stack.push(2);
         stack.push(3);
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.peek());
-        System.out.println(stack.pop());
+        System.out.println(stack);
+        stack.pop();
+        System.out.println(stack);
     }
 }
