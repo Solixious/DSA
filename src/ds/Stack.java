@@ -1,5 +1,7 @@
 package ds;
 
+import exception.StackUnderflowException;
+
 import java.util.ArrayList;
 
 public class Stack<T> {
@@ -17,12 +19,20 @@ public class Stack<T> {
     }
 
     public T pop() {
-        T data = stack.get(top - 1);
-        stack.remove(--top);
+        validateStackElementExists();
+        T data = stack.get(--top);
+        stack.remove(data);
         return data;
     }
 
     public T peek() {
+        validateStackElementExists();
         return stack.get(top - 1);
+    }
+
+    private void validateStackElementExists() {
+        if(top == 0) {
+            throw new StackUnderflowException();
+        }
     }
 }
