@@ -8,9 +8,16 @@ import java.util.Objects;
 
 public class Stack<T> {
 
+    private static final Integer DEFAULT_STACK_SIZE = 16;
     private final ArrayList<T> stack;
     private final Integer size;
     private Integer top;
+
+    public Stack() {
+        this.stack = new ArrayList<>();
+        this.size = DEFAULT_STACK_SIZE;
+        this.top = 0;
+    }
 
     public Stack(final Integer size) {
         this.stack = new ArrayList<>();
