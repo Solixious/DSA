@@ -5,16 +5,10 @@ import java.util.ArrayList;
 public class Stack<T> {
 
     private ArrayList<T> stack;
-    private Integer size;
     private Integer top;
 
     public Stack() {
         this.stack = new ArrayList<>();
-    }
-
-    public Stack(final Integer size) {
-        this.stack = new ArrayList<>(size);
-        this.size = size;
     }
 
     public void push(T data) {
