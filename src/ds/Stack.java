@@ -41,15 +41,13 @@ public class Stack<T> {
 
     public void push(final T data) {
         validateStackSize();
-        this.stack.add(data);
+        this.stack.add(this.top, data);
         this.top++;
     }
 
     public T pop() {
         validateStackElementExists();
-        T data = this.stack.get(--this.top);
-        this.stack.remove(data);
-        return data;
+        return this.stack.get(--this.top);
     }
 
     public T peek() {
@@ -78,12 +76,18 @@ public class Stack<T> {
         System.out.println(integerStack.pop());
         System.out.println(integerStack.peek());
         System.out.println(integerStack);
+        integerStack.push(2);
+        System.out.println(integerStack);
 
         Stack<Float> floatStack = new Stack<>();
         floatStack.push(1.0f);
         floatStack.push(1.3f);
+        floatStack.push(1.0f);
+        floatStack.push(1.3f);
+        System.out.println(floatStack);
+        floatStack.pop();
+        System.out.println(floatStack);
         floatStack.push(2.0f);
-        floatStack.push(0.8f);
         System.out.println(floatStack);
     }
 }
