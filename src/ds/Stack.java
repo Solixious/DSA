@@ -55,6 +55,14 @@ public class Stack<T> {
         return this.stack.get(this.top - 1);
     }
 
+    public Boolean isEmpty() {
+        return this.top == 0;
+    }
+
+    public Boolean isFull() {
+        return Objects.equals(this.top, this.size);
+    }
+
     private void validateStackElementExists() {
         if (this.top == 0) {
             throw new StackUnderflowException();
@@ -68,10 +76,13 @@ public class Stack<T> {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> integerStack = new Stack<>(5);
+        Stack<Integer> integerStack = new Stack<>(3);
+        System.out.println(integerStack.isEmpty());
         integerStack.push(1);
         integerStack.push(2);
+        System.out.println(integerStack.isFull());
         integerStack.push(3);
+        System.out.println(integerStack.isFull());
         System.out.println(integerStack);
         System.out.println(integerStack.pop());
         System.out.println(integerStack.peek());
