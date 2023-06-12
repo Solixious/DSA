@@ -1,4 +1,4 @@
-package model.ds;
+package ds;
 
 import java.util.ArrayList;
 
