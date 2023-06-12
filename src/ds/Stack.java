@@ -20,30 +20,30 @@ public class Stack<T> {
 
     public void push(final T data) {
         validateStackSize();
-        stack.add(data);
-        top++;
+        this.stack.add(data);
+        this.top++;
     }
 
     public T pop() {
         validateStackElementExists();
-        T data = stack.get(--top);
-        stack.remove(data);
+        T data = this.stack.get(--this.top);
+        this.stack.remove(data);
         return data;
     }
 
     public T peek() {
         validateStackElementExists();
-        return stack.get(top - 1);
+        return this.stack.get(this.top - 1);
     }
 
     private void validateStackElementExists() {
-        if(top == 0) {
+        if (this.top == 0) {
             throw new StackUnderflowException();
         }
     }
 
     private void validateStackSize() {
-        if(Objects.equals(top, size)) {
+        if (Objects.equals(this.top, this.size)) {
             throw new StackOverflowException();
         }
     }
