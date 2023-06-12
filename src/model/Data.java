@@ -1,10 +1,14 @@
 package model;
 
-public class Node<T> {
+public class Data<T> {
 
     private T data;
 
-    public Node(T data) {
+    public Data() {
+        this.data = null;
+    }
+
+    public Data(T data) {
         this.data = data;
     }
 
