@@ -8,7 +8,7 @@ public class Data<T> {
         this.data = null;
     }
 
-    public Data(T data) {
+    public Data(final T data) {
         this.data = data;
     }
 
