@@ -1,25 +1,26 @@
-package ds;
+package ds.stack.impl;
 
-import exception.StackOverflowException;
-import exception.StackUnderflowException;
+import ds.stack.IStack;
+import ds.stack.exception.StackOverflowException;
+import ds.stack.exception.StackUnderflowException;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Stack<T> {
+public class StackArrayListImplementation<T> implements IStack<T> {
 
     private static final Integer DEFAULT_STACK_SIZE = 16;
     private final ArrayList<T> stack;
     private final Integer size;
     private Integer top;
 
-    public Stack() {
+    public StackArrayListImplementation() {
         this.stack = new ArrayList<>();
         this.size = DEFAULT_STACK_SIZE;
         this.top = 0;
     }
 
-    public Stack(final Integer size) {
+    public StackArrayListImplementation(final Integer size) {
         this.stack = new ArrayList<>();
         this.size = size;
         this.top = 0;
@@ -39,28 +40,38 @@ public class Stack<T> {
         return sb.toString();
     }
 
+    @Override
     public void push(final T data) {
         validateStackSize();
         this.stack.add(this.top, data);
         this.top++;
     }
 
+    @Override
     public T pop() {
         validateStackElementExists();
         return this.stack.get(--this.top);
     }
 
+    @Override
     public T peek() {
         validateStackElementExists();
         return this.stack.get(this.top - 1);
     }
 
+    @Override
     public Boolean isEmpty() {
         return this.top == 0;
     }
 
+    @Override
     public Boolean isFull() {
         return Objects.equals(this.top, this.size);
+    }
+
+    @Override
+    public Integer size() {
+        return this.stack.size();
     }
 
     private void validateStackElementExists() {
@@ -73,32 +84,5 @@ public class Stack<T> {
         if (Objects.equals(this.top, this.size)) {
             throw new StackOverflowException();
         }
-    }
-
-    public static void main(String[] args) {
-        Stack<Integer> integerStack = new Stack<>(3);
-        System.out.println(integerStack.isEmpty());
-        integerStack.push(1);
-        integerStack.push(2);
-        System.out.println(integerStack.isFull());
-        integerStack.push(3);
-        System.out.println(integerStack.isFull());
-        System.out.println(integerStack);
-        System.out.println(integerStack.pop());
-        System.out.println(integerStack.peek());
-        System.out.println(integerStack);
-        integerStack.push(2);
-        System.out.println(integerStack);
-
-        Stack<Float> floatStack = new Stack<>();
-        floatStack.push(1.0f);
-        floatStack.push(1.3f);
-        floatStack.push(1.0f);
-        floatStack.push(1.3f);
-        System.out.println(floatStack);
-        floatStack.pop();
-        System.out.println(floatStack);
-        floatStack.push(2.0f);
-        System.out.println(floatStack);
     }
 }
