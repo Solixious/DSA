@@ -100,7 +100,7 @@ public class SinglyLinkedList<T> implements ILinkedList<T> {
 
         @Override
         public T next() {
-            if(current == null) {
+            if (current == null) {
                 throw new LinkedListIndexOutOfBounds();
             }
             this.current = this.current.getNext();
