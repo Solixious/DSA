@@ -2,6 +2,7 @@ package ds.stack.test;
 
 import ds.stack.IStack;
 import ds.stack.impl.StackArrayListImplementation;
+import ds.stack.impl.StackLinkedListImplementation;
 
 public class StackTest {
 
@@ -27,7 +28,7 @@ public class StackTest {
     }
 
     public static void floatStackTest() {
-        IStack<Float> floatStack = new StackArrayListImplementation<>();
+        IStack<Float> floatStack = new StackLinkedListImplementation<>();
         floatStack.push(1.0f);
         floatStack.push(1.3f);
         floatStack.push(1.0f);
