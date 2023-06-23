@@ -6,7 +6,7 @@ import ds.linkedlist.model.Node;
 
 public class SinglyLinkedList<T> implements ILinkedList<T> {
 
-    private Node<T> head;
+    private final Node<T> head;
     private Integer size;
 
     public SinglyLinkedList() {
