@@ -6,4 +6,5 @@ public interface ILinkedList<T> {
     T delete(int index);
     T get(int index);
     Integer getSize();
+    ILinkedListIterator<T> iterator();
 }

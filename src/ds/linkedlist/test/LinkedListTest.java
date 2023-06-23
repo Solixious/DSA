@@ -1,6 +1,7 @@
 package ds.linkedlist.test;
 
 import ds.linkedlist.ILinkedList;
+import ds.linkedlist.ILinkedListIterator;
 import ds.linkedlist.impl.SinglyLinkedList;
 
 public class LinkedListTest {
@@ -23,5 +24,9 @@ public class LinkedListTest {
         System.out.println(integerLinkedList);
         System.out.println(integerLinkedList.get(1));
         System.out.println(integerLinkedList.getSize());
+        ILinkedListIterator<Integer> itr = integerLinkedList.iterator();
+        while (itr.hasNext()) {
+            System.out.print(itr.next() + " ");
+        }
     }
 }

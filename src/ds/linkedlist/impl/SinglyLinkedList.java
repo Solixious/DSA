@@ -1,6 +1,7 @@
 package ds.linkedlist.impl;
 
 import ds.linkedlist.ILinkedList;
+import ds.linkedlist.ILinkedListIterator;
 import ds.linkedlist.exception.LinkedListIndexOutOfBounds;
 import ds.linkedlist.model.Node;
 
@@ -18,7 +19,7 @@ public class SinglyLinkedList<T> implements ILinkedList<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder("HEAD");
         Node<T> itr = this.head;
-        while(itr.getNext() != null) {
+        while (itr.getNext() != null) {
             itr = itr.getNext();
             sb.append(" ---> ").append(itr.getData());
         }
@@ -82,5 +83,33 @@ public class SinglyLinkedList<T> implements ILinkedList<T> {
     @Override
     public Integer getSize() {
         return this.size;
+    }
+
+    @Override
+    public ILinkedListIterator<T> iterator() {
+        return new SinglyLinkedListIterator<>(this.head);
+    }
+
+    private static class SinglyLinkedListIterator<T> implements ILinkedListIterator<T> {
+
+        private Node<T> current;
+
+        public SinglyLinkedListIterator(Node<T> head) {
+            this.current = head;
+        }
+
+        @Override
+        public T next() {
+            if(current == null) {
+                throw new LinkedListIndexOutOfBounds();
+            }
+            this.current = this.current.getNext();
+            return this.current.getData();
+        }
+
+        @Override
+        public Boolean hasNext() {
+            return current.getNext() != null;
+        }
     }
 }
