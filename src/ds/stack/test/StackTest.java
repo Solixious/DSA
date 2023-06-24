@@ -1,7 +1,7 @@
 package ds.stack.test;
 
 import ds.stack.IStack;
-import ds.stack.impl.StackArrayListImplementation;
+import ds.stack.impl.StackListImplementation;
 import ds.stack.impl.StackLinkedListImplementation;
 
 public class StackTest {
@@ -12,7 +12,7 @@ public class StackTest {
     }
 
     public static void integerStackTest() {
-        IStack<Integer> integerStack = new StackArrayListImplementation<>(3);
+        IStack<Integer> integerStack = new StackListImplementation<>(3);
         System.out.println(integerStack.isEmpty());
         integerStack.push(1);
         integerStack.push(2);
