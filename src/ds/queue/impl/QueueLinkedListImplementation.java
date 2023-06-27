@@ -2,7 +2,7 @@ package ds.queue.impl;
 
 import ds.queue.IQueue;
 
-public class QueueLinkedListImplementation implements IQueue {
+public class QueueLinkedListImplementation<T> implements IQueue<T> {
 
     @Override
     public void enqueue(Object data) {
@@ -10,7 +10,7 @@ public class QueueLinkedListImplementation implements IQueue {
     }
 
     @Override
-    public Object dequeue() {
+    public T dequeue() {
         return null;
     }
 
